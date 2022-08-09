@@ -2,3 +2,4 @@
 back/db.sqlite3
 back/apps/__pycache__/
 back/apps/core/__pycache__/
+back/backend/__pycache__/
