@@ -1,8 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
-const List = (props
-) =>{
+const List = (props) =>{
     return (
         <div>
             <h2>{props.listName}</h2>
