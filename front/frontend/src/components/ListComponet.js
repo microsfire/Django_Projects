@@ -7,7 +7,7 @@ const ListComponet = (props) => {
         <div>
             <h2>{props.listName}</h2>
             <ul>
-                {/*{items.map(item => <ItemComponet key={item.id} name={item.name} status={item.done}/>)}*/}
+                {/*{items.map(item=> <ItemComponet key={item.id} name={item.name} status={item.done}/>)}*/}
             </ul>
         </div>
     )

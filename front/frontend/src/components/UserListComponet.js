@@ -10,7 +10,7 @@ class UserListComponet extends Component {
         const config = {
             headers: {'Content-Type':'application/json'}
         }
-        config.headers['Authorization'] = 'Token 72b63549395a5f9cc82b379a1d961f423afecc7d'
+        config.headers['Authorization'] = 'Token ' + localStorage.getItem('token')
 
         let url = 'http://localhost:8000/list/';
         const response = await fetch(url, config);
@@ -21,15 +21,17 @@ class UserListComponet extends Component {
 
     render() {
         const listApi = this.state.list;
-        let token = ''
-        if (token === '')
+        let token = localStorage.getItem('token')
+        if (!token){
             return <LoginComponent />
-
-        return (
+        }else{
+            return (
             <div>
                 {listApi.map(list => <ListComponet key={list.id} listName={list.name} items={list.item_set}/>)}
             </div>
         )
+        }
+
     }
 }
 
