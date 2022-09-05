@@ -1,13 +1,13 @@
 import './App.css';
-import List from "./components/List";
-import Userlist from "./components/UserList";
+import ListComponet from "./components/ListComponet";
+import UserListComponet from "./components/UserListComponet";
 import React from "react";
 
 function App() {
   return (
     <div>
-      <Userlist />
-      <List/>
+      <UserListComponet />
+      <ListComponet/>
     </div>
   );
 }
