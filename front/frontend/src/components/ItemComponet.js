@@ -4,7 +4,7 @@ const ItemComponet = (props) => {
     const status = props.status
     return(
         <div>
-            <li>{props.name} {status ? 'Comcluido' : 'Incompleto'}</li>
+            <li>{props.name} => status: {status ? <span>done</span> : <span>not</span>}</li>
         </div>
 
     )

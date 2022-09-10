@@ -1,9 +1,10 @@
 import React from "react";
+import UserListComponet from "./UserListComponet";
 
 class LoginComponent extends React.Component{
     constructor(props) {
     super(props);
-    this.state = {username: 'admin', password: '@007700'};
+    this.state = {username: '', password: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this)
@@ -28,23 +29,31 @@ class LoginComponent extends React.Component{
     }
     fetch(urlToken, requestOptions)
         .then(response => response.json())
-        .then(data => localStorage.setItem('token', data.token))
+        .then(data =>
+        {localStorage.setItem('token', data.token)
+            this.setState({token: data.token})
+        })
   }
 
   render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-          <label>
-          Usuario:
-          <input type="text" value={this.state.username} onChange={this.handleChange} />
-          </label>
-          <label>
-          Senha:
-          <input type="password" value={this.state.password} onChange={this.handleChangePassword} />
-          </label>
-        <input type="submit" value="Enviar" />
-      </form>
-    );
+    let token = localStorage.getItem('token')
+      if (!token){
+          return (
+          <form onSubmit={this.handleSubmit}>
+              <label>
+              Usuario:
+              <input type="text" value={this.state.username} onChange={this.handleChange} />
+              </label>
+              <label>
+              Senha:
+              <input type="password" value={this.state.password} onChange={this.handleChangePassword} />
+              </label>
+            <input type="submit" value="Enviar" />
+          </form>
+        );
+      }else {
+          return <UserListComponet/>
+      }
   }
 }
 
